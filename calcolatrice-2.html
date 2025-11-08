@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>calcolatrice</title>
+        <style>
+            table{
+                table,td {border:1px solid black;}
+                height: 25vh;
+                background-color: rgb(196, 233, 240);
+                td {text-align:center;}
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h2>Calcolatrice</h2>
+        </header>
+        <input type="text" id="display" disabled>
+        <table>
+            <tr>
+                <td>
+                    <button id="uno">
+                        1
+                    </button>
+                </td>
+                <td>
+                    <button id="due">
+                        2
+                    </button>
+                </td>
+                <td>
+                    <button id="tre">
+                        3
+                    </button>
+                </td>
+                <td>
+                    <button id="clear">C</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="quattro">
+                        4
+                    </button>
+                </td>
+                <td>
+                    <button id="cinque">
+                        5
+                    </button>
+                </td>
+                <td>
+                    <button id="sei">
+                        6
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="sette">
+                        7
+                    </button>
+                </td>
+                <td>
+                    <button id="otto">
+                        8
+                    </button>
+                </td>
+                <td>
+                    <button id="nove">
+                        9
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="piu">
+                        +
+                    </button>
+                </td>
+                <td>
+                    <button id="zero">
+                        0
+                    </button>
+                </td>
+                <td>
+                    <button id="uguale">
+                        =
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="meno">
+                        -
+                    </button>
+                </td>
+                <td>
+                    <button id="per">
+                        *
+                    </button>
+                </td>
+                <td>
+                    <button id="diviso">
+                        /
+                    </button>
+                </td>
+            </tr>
+        </table>
+        <script>
+            var vp= 0;
+            var vs= 0;
+            let operation= '';
+            const display =document.getElementById('display');
+            function clearDisplay() {
+            vp= '';
+            vs= '';
+            operation= '';
+            display.value= '';
+            }
+            document.getElementById("uno").addEventListener("click", function(){
+                if(operation==''){
+                    vp+=1;
+                    display.value=vp;
+                }else{
+                    vs+=1;
+                    display.value=vs;
+                }
+            });
+            document.getElementById("due").addEventListener("click", function(){
+                if(operation==''){
+                    vp+=2;
+                    display.value=vp;
+                }else{
+                    vs+=2;
+                    display.value=vs;
+                }
+            });
+            document.getElementById("tre").addEventListener("click", function(){
+                if(operation==''){
+                    vp+=3;
+                    display.value=vp;
+                }else{
+                    vs+=3;
+                    display.value=vs;
+                }
+            });
+            document.getElementById("quattro").addEventListener("click", function(){
+                if(operation==''){
+                    vp+=4;
+                    display.value=vp;
+                }else{
+                    vs+=4;
+                    display.value=vs;
+                }
+            });
+            document.getElementById("cinque").addEventListener("click", function(){
+                if(operation==''){
+                    vp+=5;
+                    display.value=vp;
+                }else{
+                    vs+=5;
+                    display.value=vs;
+                }
+            });
+            document.getElementById("sei").addEventListener("click", function(){
+                if(operation==''){
+                    vp+=6;
+                    display.value=vp;
+                }else{
+                    vs+=6;
+                    display.value=vs;
+                }
+            });
+            document.getElementById("sette").addEventListener("click", function(){
+                if(operation==''){
+                    vp+=7;
+                    display.value=vp;
+                }else{
+                    vs+=7;
+                    display.value=vs;
+                }
+            });
+            document.getElementById("otto").addEventListener("click", function(){
+                if(operation==''){
+                    vp+=8;
+                    display.value=vp;
+                }else{
+                    vs+=8;
+                    display.value=vs;
+                }
+            });
+            document.getElementById("nove").addEventListener("click", function(){
+                if(operation==''){
+                    vp+=9;
+                    display.value=vp;
+                }else{
+                    vs+=9;
+                    display.value=vs;
+                }
+            });
+            document.getElementById("zero").addEventListener("click", function(){
+                if(operation==''){
+                    vp+=0;
+                    display.value=vp;
+                }else{
+                    vs+=0;
+                    display.value=vs;
+                }
+            });
+            document.getElementById("piu").addEventListener("click",function(){
+                if(vp!=''){
+                    operation='+';
+                }
+            });
+            document.getElementById("meno").addEventListener("click",function(){
+                if(vp!=''){
+                    operation='-';
+                }
+            });
+            document.getElementById("per").addEventListener("click",function(){
+                if(vp!=''){
+                    operation='*';
+                }
+            });
+            document.getElementById("diviso").addEventListener("click",function(){
+                if(vp!=''){
+                    operation='/';
+                }
+            });
+            document.getElementById('clear').addEventListener('click', clearDisplay);
+            document.getElementById("uguale").addEventListener("click", function(){
+                if (vp && vs && operation){
+                var ris='';
+                if(operation=='+'){
+                    ris=parseInt(vp)+parseInt(vs);
+                }
+                else{
+                    if(operation=='-'){
+                        ris=vp-vs;
+                    }
+                    else{
+                        if(operation == '*'){
+                            ris=vp*vs;
+                        }
+                        else{
+                            ris=vp/vs;
+                        }
+                    }
+                }
+                alert("il risultato è: " + ris);
+            }
+        });
+        </script>
+    </body>
+</html>
